@@ -5,6 +5,14 @@
 </head>
 <body>
     <h2>Benvenuto, {{ username }}</h2>
+    {% for elemento in dati %}
+    <li>
+        <div>
+            <p>{{ elemento.name }}</p>
+            <p>{{ elemento.craft }}</p>
+        </div>
+    </li>
+    {% endfor %}
     <a href="{{ url_for('logout') }}">Esci</a>
 </body>
 </html>

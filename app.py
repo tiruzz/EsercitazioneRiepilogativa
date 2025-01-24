@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from models import db, User
+from utilis import visualizza
 from flask_bcrypt import Bcrypt
 
 
@@ -59,7 +60,8 @@ def login():
 @app.route('/home')
 @login_required  #solo se user è autenticato
 def home():
-    return render_template('home.html', username=current_user.username)
+    dati = visualizza()
+    return render_template('home.html', username=current_user.username, dati = dati)
 
 @app.route('/logout')
 @login_required  
